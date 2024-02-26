@@ -1,0 +1,43 @@
+class Peternakan:
+    def __init__(self):
+        self.hewan = {}
+
+    def tambah_hewan(self, nama, jenis, usia , jumlah):
+        if nama not in self.hewan:
+            self.hewan[nama] = {'jenis': jenis, 'usia': (usia , str("Tahun")) ,'jumlah': jumlah}
+            return f"{nama} berhasil ditambahkan ke peternakan."
+        else:
+            return f"{nama} sudah ada di peternakan."
+
+    def lihat_hewan(self):
+        if self.hewan:
+            return self.hewan
+        else:
+            return "Peternakan kosong."
+
+    def update_hewan(self, nama, jenis, usia, jumlah):
+        if nama in self.hewan:
+            self.hewan[nama] = {'jenis': jenis, 'usia' : (usia , str("Tahun")) , 'jumlah': jumlah}
+            return f"Data {nama} berhasil diperbarui."
+        else:
+            return f"{nama} tidak ditemukan di peternakan."
+
+    def hapus_hewan(self, nama):
+        if nama in self.hewan:
+            del self.hewan[nama]
+            return f"{nama} berhasil dihapus dari peternakan."
+        else:
+            return f"{nama} tidak ditemukan di peternakan."
+
+
+peternakan_saya = Peternakan()
+print(peternakan_saya.tambah_hewan('Sapi', 'Sapi Limosin', 6 , 10))
+print(peternakan_saya.tambah_hewan('Ayam', 'Ayam Kampung', 1, 20))
+
+print(peternakan_saya.lihat_hewan())
+
+print(peternakan_saya.update_hewan('Sapi', 'Sapi Susu', 4, 12))
+
+print(peternakan_saya.hapus_hewan('Ayam'))
+
+print(peternakan_saya.lihat_hewan())
